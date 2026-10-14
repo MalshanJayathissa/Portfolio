@@ -1,393 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>KTDDM Jayathissa | Software Developer</title>
-  <meta name="description" content="Portfolio of KTDDM Jayathissa — Software Developer & Data Science undergraduate passionate about data analysis, robust software, and meaningful solutions." />
-  <meta name="author" content="KTDDM Jayathissa" />
-  <meta property="og:title" content="KTDDM Jayathissa | Software Developer" />
-  <meta property="og:description" content="Software Developer & Data Science undergraduate. Projects, skills, education, and contact." />
-  <meta property="og:type" content="website" />
-  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" integrity="sha512-1ycn6IcaQQ40/J6MDZ3O6bZ0ZQO6Q5Z3r5u8fYh4ZKqgF5D2mQ2nA8m1bE8M3k2mV7Qf7y7mCwDkQxU6Yk6zKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <style>
-    :root{
-      --bg: #0b0e14; /* deep dark */
-      --panel: #111525; /* card */
-      --elev: #0f1320; /* elevated */
-      --text: #e6eaf2; /* primary text */
-      --muted: #9aa4b2; /* secondary text */
-      --accent: #50c8d7; /* cyan accent */
-      --accent-2: #7f5af0; /* violet accent */
-      --ring: rgba(80,200,215,0.35);
-      --border: #1e2336;
-      --success: #30c48d;
-      --danger: #ff6b6b;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 16px;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 800px at 80% -10%, rgba(127,90,240,0.15), transparent 60%),
-                  radial-gradient(1000px 700px at -10% 10%, rgba(80,200,215,0.14), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.7;
-    }
-
-    /* Layout */
-    .container{ width:min(1120px, 92%); margin:0 auto; }
-    section{ padding:80px 0; position:relative; }
-    .section-title{ font-size: clamp(22px, 3vw, 32px); font-weight: 800; margin:0 0 18px; letter-spacing:.3px }
-    .section-sub{ color:var(--muted); margin:0 0 36px; }
-
-    /* Nav */
-    header{ position:sticky; top:0; z-index:50; backdrop-filter: saturate(140%) blur(8px); background: rgba(11,14,20,.72); border-bottom:1px solid var(--border); }
-    .nav{ display:flex; align-items:center; justify-content:space-between; height:64px; }
-    .brand{ display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.3px; }
-    .brand .logo{ width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; color:#0b0e14; font-weight:900; box-shadow: var(--shadow); }
-    nav ul{ display:flex; gap:22px; list-style:none; margin:0; padding:0 }
-    nav a{ color:var(--text); text-decoration:none; font-weight:600; opacity:.9 }
-    nav a:hover{ color:var(--accent) }
-
-    .menu-btn{ display:none; border:1px solid var(--border); background:transparent; color:var(--text); border-radius:12px; padding:8px 12px }
-
-    @media (max-width: 860px){
-      nav ul{ display:none }
-      .menu-btn{ display:inline-flex; align-items:center; gap:8px }
-      .mobile-nav{ display:none; }
-      .mobile-nav.open{ display:block; border-top:1px solid var(--border); background: rgba(11,14,20,.95) }
-      .mobile-nav a{ display:block; padding:14px 4px; color:var(--text); text-decoration:none; }
-      .mobile-nav a:hover{ color:var(--accent) }
-    }
-
-    /* Hero */
-    .hero{ padding:100px 0 80px; }
-    .hero-grid{ display:grid; grid-template-columns: 1.1fr .9fr; gap:40px; align-items:center; }
-    .hero h1{ font-size: clamp(28px, 5vw, 46px); margin:0 0 8px; line-height:1.15; }
-    .hero .tag{ color:var(--accent); font-weight:700; letter-spacing:.4px; }
-    .lead{ color:var(--muted); margin-top:14px; }
-    .cta-row{ display:flex; gap:14px; margin-top:28px; flex-wrap:wrap }
-    .btn{ appearance:none; border:none; cursor:pointer; padding:12px 16px; border-radius:14px; font-weight:700; letter-spacing:.2px; transition:.2s transform, .2s box-shadow, .2s background; }
-    .btn-primary{ background: linear-gradient(135deg,var(--accent), #7ad9e5); color:#032227; box-shadow: 0 10px 25px rgba(80,200,215,.35) }
-    .btn-primary:hover{ transform: translateY(-1px); }
-    .btn-ghost{ background: transparent; border:1px solid var(--border); color:var(--text); }
-    .btn-ghost:hover{ border-color: var(--accent); color: var(--accent); }
-
-    .avatar{ width:160px; height:160px; border-radius:50%; background:linear-gradient(135deg,var(--panel),var(--elev)); border:1px solid var(--border); display:grid; place-items:center; position:relative; box-shadow: var(--shadow); }
-    .avatar::after{ content:"KJ"; font-size:48px; font-weight:800; color:var(--accent); }
-
-    @media (max-width: 960px){
-      .hero-grid{ grid-template-columns: 1fr; text-align:left }
-      .avatar{ margin-top:10px }
-    }
-
-    /* Cards & grids */
-    .grid{ display:grid; gap:18px }
-    .grid-2{ grid-template-columns: repeat(2, 1fr) }
-    .grid-3{ grid-template-columns: repeat(3, 1fr) }
-    @media (max-width: 900px){ .grid-3{ grid-template-columns: 1fr 1fr } }
-    @media (max-width: 640px){ .grid-2, .grid-3{ grid-template-columns: 1fr } }
-
-    .card{ background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0)); border:1px solid var(--border); border-radius: var(--radius); padding:18px; box-shadow: var(--shadow) }
-    .card h3{ margin:6px 0 8px; font-size:18px }
-    .card p{ color:var(--muted); margin:0 }
-
-    /* Skills pills */
-    .pills{ display:flex; flex-wrap:wrap; gap:10px }
-    .pill{ padding:8px 12px; border-radius:999px; border:1px solid var(--border); background: rgba(255,255,255,0.02); font-weight:600; font-size:14px }
-
-    /* Project */
-    .project{ display:grid; grid-template-columns: 1.2fr .8fr; gap:22px; align-items:center }
-    .project .preview{ background: radial-gradient(600px 300px at 0% 0%, rgba(127,90,240,0.18), transparent 60%), linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)); border:1px solid var(--border); border-radius: var(--radius); aspect-ratio: 16/10; display:grid; place-items:center; color:var(--muted); }
-    .link-row{ display:flex; gap:12px; flex-wrap:wrap; margin-top:12px }
-    .link{ display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:12px; border:1px solid var(--border); text-decoration:none; color:var(--text); font-weight:700 }
-    .link:hover{ color:var(--accent); border-color:var(--accent) }
-
-    @media (max-width: 900px){ .project{ grid-template-columns: 1fr } }
-
-    /* Timeline */
-    .timeline{ position:relative; margin: 18px 0 0; }
-    .timeline::before{ content:""; position:absolute; left:14px; top:0; bottom:0; width:2px; background:linear-gradient(var(--accent), transparent); opacity:.3 }
-    .t-item{ position:relative; padding-left:40px; margin:16px 0 }
-    .t-item::before{ content:""; position:absolute; left:7px; top:8px; width:16px; height:16px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent-2)); box-shadow:0 0 0 3px rgba(80,200,215,.15) }
-    .t-title{ font-weight:800 }
-    .t-meta{ color:var(--muted); font-size:14px; margin-top:2px }
-
-    /* Contact */
-    form{ display:grid; gap:12px; max-width:720px }
-    .input{ width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:#0b0f1c; color:var(--text); font-size:15px; outline:none; box-shadow: inset 0 0 0 1px transparent }
-    .input:focus{ border-color: var(--accent); box-shadow: 0 0 0 6px var(--ring) }
-    textarea.input{ min-height:140px; resize:vertical }
-
-    /* Footer */
-    footer{ padding:32px 0; border-top:1px solid var(--border); color:var(--muted) }
-    .socials{ display:flex; gap:12px; flex-wrap:wrap }
-    .icon-btn{ display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:12px; border:1px solid var(--border); color:var(--text); text-decoration:none }
-    .icon-btn:hover{ color:var(--accent); border-color:var(--accent) }
-
-    /* Small helpers */
-    .muted{ color:var(--muted) }
-    .accent{ color:var(--accent); }
-    .kbd{ border:1px solid var(--border); border-bottom-width:3px; padding:2px 6px; border-radius:6px; font-weight:800; font-size:12px }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080e1b">
+<meta name="description" content="Malshan Jayathissa — Data Science & Machine Learning Enthusiast studying BSc (Hons) in Data Science at Sabaragamuwa University of Sri Lanka. Explore projects in data analytics, machine learning and software development.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Malshan Jayathissa | Data Science & Machine Learning">
+<meta property="og:description" content="Data science, machine learning, and software development projects by Malshan Jayathissa.">
+<title>Malshan Jayathissa — Data Science & Machine Learning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#080e1b;--panel:#101b2d;--panel2:#12243a;--text:#edf5ff;--muted:#9cacc2;--line:#26354a;--accent:#56d6e9;--accent2:#92a6ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:85px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 "DM Sans",sans-serif}
+body:before{content:"";position:absolute;top:0;left:0;right:0;height:740px;pointer-events:none;background:radial-gradient(ellipse at 80% 15%,rgba(69,124,230,.17),transparent 53%),radial-gradient(ellipse at 15% 10%,rgba(48,214,220,.09),transparent 44%);z-index:-1}
+a{color:inherit;text-decoration:none}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:4px}button{font:inherit;cursor:pointer}
+.container{width:min(1120px,90%);margin:auto}.eyebrow{font-size:.76rem;font-weight:700;letter-spacing:.17em;color:var(--accent);text-transform:uppercase}.section{padding:82px 0}.section-head{margin-bottom:32px}.section h2{font:700 clamp(1.9rem,3.4vw,2.8rem)/1.2 "Space Grotesk",sans-serif;margin:9px 0 12px}.muted{color:var(--muted)}p{margin:0 0 16px}
+header{position:sticky;top:0;z-index:10;background:rgba(8,14,27,.82);border-bottom:1px solid rgba(120,160,190,.15);backdrop-filter:blur(18px)}.nav{height:74px;display:flex;justify-content:space-between;align-items:center;gap:18px}.logo{font:700 1.4rem "Space Grotesk";letter-spacing:-.06em}.logo span{color:var(--accent)}.links{display:flex;align-items:center;gap:26px}.links a{font-size:.9rem;color:#c2ccdb}.links a:hover,.social a:hover{color:var(--accent)}.menu{display:none;background:transparent;border:1px solid var(--line);color:var(--text);border-radius:9px;padding:7px 12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 21px;border-radius:9px;font-weight:700;font-size:.92rem;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px)}.primary{background:var(--accent);color:#081522}.secondary{border:1px solid #496179;color:var(--text)}.secondary:hover{background:#15243a}
+.hero{min-height:620px;display:grid;grid-template-columns:1.3fr .7fr;align-items:center;gap:58px;padding:70px 0 95px}.hero h1{font:700 clamp(2.8rem,5.8vw,5.4rem)/1.07 "Space Grotesk";letter-spacing:-.055em;margin:14px 0 20px}.hero h1 em{font-style:normal;color:var(--accent)}.hero .intro{font:600 clamp(1.05rem,2vw,1.3rem) "Space Grotesk";color:#d7e4f3;margin-bottom:13px}.hero .description{max-width:600px;color:var(--muted);font-size:1.04rem}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:29px}.social{display:flex;gap:22px;margin-top:28px;color:var(--muted);font-size:.9rem}.avatar-area{display:flex;justify-content:center}.avatar-frame{position:relative;width:min(100%,330px);aspect-ratio:1;border-radius:32px;background:linear-gradient(145deg,#152b43,#0b1425);border:1px solid #2c4962;display:grid;place-items:center;box-shadow:0 30px 85px #0006}.avatar-frame:before{content:"";position:absolute;inset:16px;border:1px solid #37516a;border-radius:25px}.avatar-frame strong{font:700 clamp(5rem,10vw,8rem) "Space Grotesk";letter-spacing:-.1em;color:#d6f7ff;text-shadow:0 0 60px #45d8ed55}.avatar-label{position:absolute;bottom:-16px;right:-12px;background:#13283d;border:1px solid #37526a;padding:9px 14px;border-radius:10px;font-size:.8rem;color:#9df0fb}
+.about-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:30px}.card{border:1px solid var(--line);background:linear-gradient(145deg,var(--panel),#0d1727);border-radius:17px;padding:28px}.card h3{font:600 1.2rem "Space Grotesk";margin:0 0 12px}.fact{padding:15px 0;border-bottom:1px solid var(--line)}.fact:last-child{border:0}.fact small{display:block;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-size:.7rem}.fact strong{font-size:.94rem}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:19px}.tag{border:1px solid #2e4860;background:#14263c;border-radius:7px;padding:6px 11px;color:#d3e7f4;font-size:.84rem}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.project{overflow:hidden;padding:0;display:flex;flex-direction:column}.project-visual{height:145px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 65% 30%,#24486b,transparent 54%),linear-gradient(135deg,#122940,#132035);border-bottom:1px solid var(--line)}.project-visual span{font:700 2.5rem "Space Grotesk";letter-spacing:-.07em;color:#8cdeee}.project-body{padding:25px;display:flex;flex-direction:column;flex:1}.project-body h3{margin-bottom:9px}.project-body p{color:var(--muted);font-size:.93rem;flex:1}.project-links{display:flex;gap:18px;margin-top:20px;font-size:.9rem;font-weight:700;color:var(--accent)}.project-links a:hover{text-decoration:underline}
+.timeline{border-left:2px solid #315068;padding-left:26px;margin-left:8px;position:relative}.timeline:before{content:"";width:13px;height:13px;background:var(--accent);border-radius:50%;position:absolute;left:-7.5px;top:7px}.timeline h3{font:600 1.2rem "Space Grotesk";margin:0}.note{border-left:3px solid #5187a0;padding:12px 18px;background:#132137;border-radius:0 9px 9px 0}
+.contact-box{padding:50px;text-align:center;background:radial-gradient(circle at center top,#183854 0%,#101b2d 65%);border:1px solid #30516b;border-radius:20px}.contact-box p{max-width:560px;margin:0 auto 25px}footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.86rem}.footer-flex{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:830px){.hero{grid-template-columns:1fr;gap:45px;min-height:auto;padding:85px 0}.avatar-area{order:-1;justify-content:flex-start}.avatar-frame{width:190px;border-radius:23px}.avatar-frame:before{inset:9px;border-radius:17px}.avatar-frame strong{font-size:5rem}.avatar-label{right:-35px}.about-grid,.skills-grid{grid-template-columns:1fr 1fr}.links{display:none;position:absolute;top:73px;left:0;right:0;background:#0b1424;padding:20px 5%;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:15px}.links.open{display:flex}.menu{display:block}}
+@media(max-width:580px){.hero h1{font-size:3rem}.section{padding:62px 0}.projects-grid,.skills-grid,.about-grid{grid-template-columns:1fr}.card{padding:22px}.contact-box{padding:32px 20px}.hero{padding-top:54px}.social{flex-wrap:wrap;gap:13px}.avatar-frame{width:155px}.avatar-frame strong{font-size:4rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
 </head>
 <body>
-  <!-- Header / Nav -->
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true">KJ</div>
-        <div>
-          <div style="font-weight:800">KTDDM Jayathissa</div>
-          <div class="muted" style="font-size:12px; margin-top:-2px">Software Developer</div>
-        </div>
-      </div>
-
-      <nav aria-label="Primary">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-
-      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav">
-        <i class="fa-solid fa-bars"></i>
-        Menu
-      </button>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <main id="home" class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="tag">Software Developer</div>
-        <h1>Hi, I’m <span class="accent">Malshan</span> a Data Science undergraduate passionate about uncovering meaningful stories through data and building useful software.</h1>
-        <p class="lead">From Avissawella to Sabaragamuwa University of Sri Lanka, my journey blends a Software Engineering diploma from NIBM with hands-on data analysis and modern development practices.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#projects">&nbsp;View Projects</a>
-          <a class="btn btn-ghost" href="#contact">&nbsp;Contact Me</a>
-        </div>
-      </div>
-      <div style="display:flex; justify-content:center"><img src="Sandaruwan Pasindu Photography620.jpg" alt="My Picture" width="300" height="450" style="border-radius: 10px; border-style: solid;">
-      </div>
-    </div>
-  </main>
-
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">About</h2>
-      <p class="section-sub">I’m KTDDM Jayathissa, a data science undergraduate at Sabaragamuwa University with a deep interest in data analysis. My journey began with a software engineering diploma from NIBM, which gave me the technical foundation I needed. Originally from Avissawella, I’m passionate about using data to find meaningful stories and solutions.</p>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills">
-    <div class="container">
-      <h2 class="section-title">Skills & Expertise</h2>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Programming Languages</h3>
-          <div class="pills">
-            <span class="pill">Python</span>
-            <span class="pill">SQL</span>
-            <span class="pill">C#</span>
-            <span class="pill">C</span>
-            <span class="pill">Java</span>
-            <span class="pill">HTML</span>
-            <span class="pill">CSS</span>
-            <span class="pill">JavaScript</span>
-            <span class="pill">PHP</span>
-          </div>
-          <p class="muted" style="margin-top:10px">Familiar: Java (from Software Engineering diploma)</p>
-        </div>
-
-        <div class="card">
-          <h3>Databases & Big Data</h3>
-          <div class="pills">
-            <span class="pill">MySQL</span>
-            <span class="pill">Database Design</span>
-            <span class="pill">Query Optimization</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Software Engineering & Tools</h3>
-          <div class="pills">
-            <span class="pill">GitHub</span>
-            <span class="pill">Jupyter Notebook</span>
-            <span class="pill">Google Colab</span>
-            <span class="pill">VS Code</span>
-            <span class="pill">PyCharm</span>
-            <span class="pill">CodeBlocks</span>
-            <span class="pill">Apache NetBeans</span>
-            <span class="pill">OOP</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Soft Skills</h3>
-          <div class="pills">
-            <span class="pill">Analytical Thinking</span>
-            <span class="pill">Communication</span>
-            <span class="pill">Problem-Solving</span>
-            <span class="pill">Teamwork & Collaboration</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">Projects</h2>
-
-      <article class="project card">
-        <div>
-          <h3>Traffic Fine Management System</h3>
-          <p class="muted">Traffic enforcement agencies must implement more intelligent and effective procedures to handle fines and penalties due to the growing number of cars on the road and the increasing number of traffic infractions. Conventional manual methods for managing and administering traffic penalties are frequently opaque, labor-intensive, and prone to human mistake. Because they rely on paperwork and in-person visits to resolve penalties, they also place a heavy strain on both residents and law enforcement. The Traffic Fine Management System was created as a software solution to address these issues and modernize the procedure by facilitating digital tracking and administration of traffic infractions.</p>
-          <div class="link-row">
-            <a class="link" href="https://github.com/MalshanJayathissa/Traffic-fine-management-system" target="_blank" rel="noopener">GitHub Repo</a>
-            <a class="link" href="https://github.com/MalshanJayathissa/Project-demo-video" target="_blank" rel="noopener">Demo Video</a>
-          </div>
-        </div>
-        <div class="preview">
-          <div>
-            <i class="fa-solid fa-gauge-high" style="font-size:42px"></i>
-            <div class="muted" style="margin-top:10px">
-                <img src="Screenshot 2025-09-06 125832.png" alt="My Picture" width="450" height="300">
-            </div>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section id="education">
-    <div class="container">
-      <h2 class="section-title">Education</h2>
-      <div class="timeline">
-        <div class="t-item">
-          <div class="t-title">BSc (Hons) in Data Science</div>
-          <div class="t-meta">Sabaragamuwa University of Sri Lanka</div>
-        </div>
-        <div class="t-item">
-          <div class="t-title">Diploma in Software Engineering</div>
-          <div class="t-meta">National Institute of Business Management (NIBM)</div>
-        </div>
-        <div class="t-item">
-          <div class="t-title">English Language Proficiency</div>
-          <div class="t-meta">British Way English Academy</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <p class="section-sub">Let’s create something impactful together. Reach out via the form or use the direct links below.</p>
-
-      <div class="grid grid-2">
-        <div>
-          <form id="contactForm" onsubmit="return handleMailto(event)">
-            <input class="input" type="text" id="name" name="name" placeholder="Your name" required />
-            <input class="input" type="email" id="email" name="email" placeholder="Your email" required />
-            <textarea class="input" id="message" name="message" placeholder="Your message" required></textarea>
-            <button class="btn btn-primary" type="submit">&nbsp;Send Message</button>
-            <p class="muted" style="margin:8px 0 0">This opens your email app using <span class="kbd">mailto:</span>.</p>
-          </form>
-        </div>
-        <div class="card">
-          <h3>Direct</h3>
-          <p>
-            <strong>Email:</strong> <a class="link" href="mailto:dileepamalshan638@gmail.com">dileepamalshan638@gmail.com</a><br />
-            <strong>Phone:</strong> <a class="link" href="tel:+94701125329">070 112 5329</a>
-          </p>
-          <h3 style="margin-top:16px">Social</h3>
-          <div class="socials" aria-label="Social links">
-            <a class="icon-btn" href="https://www.linkedin.com/in/malshan-jayathissa" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
-            <a class="icon-btn" href="https://github.com/MalshanJayathissa" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
-            <a class="icon-btn" href="https://www.facebook.com/share/1FXGEQoLcD/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-            <a class="icon-btn" href="https://www.instagram.com/_malshan_6?utm_source=qr&igsh=MWViOGVhOTI4eDQ0Zw==" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
-      <div>© <span id="year"></span> KTDDM Jayathissa. All rights reserved.</div>
-    </div>
-  </footer>
-
-  <script>
-    // Mobile nav toggle
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    menuBtn?.addEventListener('click', () => {
-      const isOpen = mobileNav.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Mailto handler
-    function handleMailto(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      const subject = encodeURIComponent(`Portfolio Contact — ${name}`);
-      const body = encodeURIComponent(`From: ${name} <${email}>\n\n\n${message}`);
-      const href = `mailto:dileepamalshan638@gmail.com?subject=${subject}&body=${body}`;
-      window.location.href = href;
-      return false;
-    }
-  </script>
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "KTDDM Jayathissa",
-    "jobTitle": "Software Developer",
-    "url": "",
-    "sameAs": [
-      "https://www.linkedin.com/in/malshan-jayathissa",
-      "https://github.com/MalshanJayathissa",
-      "https://www.facebook.com/share/1FXGEQoLcD/",
-      "https://www.instagram.com/_malshan_6?utm_source=qr&igsh=MWViOGVhOTI4eDQ0Zw=="
-    ],
-    "alumniOf": [
-      {"@type":"CollegeOrUniversity","name":"Sabaragamuwa University of Sri Lanka"},
-      {"@type":"CollegeOrUniversity","name":"National Institute of Business Management (NIBM)"}
-    ]
-  }
-  </script>
-</body>
-</html>
-
+<header><div class="container nav"><a class="logo" href="#home" aria-label="Malshan Jayathissa home">MJ<span>.</span></a><button class="menu" id="menu" aria-controls="navlinks" aria-expanded="false" aria-label="Toggle navigation">☰ Menu</button><nav class="links" id="navlinks" aria-label="Main navigation"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a></nav></div></header>
+<main>
+<section id="home" class="container hero"><div><div class="eyebrow">Welcome to my portfolio</div><h1>Hi, I'm <em>Malshan Jayathissa.</em></h1><p class="intro">Data Science & Machine Learning Enthusiast</p><p class="description">I'm a BSc (Hons) in Data Science undergraduate at Sabaragamuwa University of Sri Lanka, interested in turning complex data into actionable insights and building useful software.</p><div class="actions"><a class="btn primary" href="#projects">Explore My Projects ↗</a><a class="btn secondary" href="#contact">Get in Touch →</a></div><div class="social"><a href="https://github.com/MalshanJayathissa" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/malshan-jayathissa" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="mailto:dileepamalshan638@gmail.com">Email ↗</a></div></div><div class="avatar-area"><div class="avatar-frame" role="img" aria-label="MJ initials avatar"><strong>MJ</strong><span class="avatar-label">Learning • Building • Exploring</span></div></div></section>
+<section id="about" class="section"><div class="container"><div class="section-head"><span class="eyebrow">01 / Introduction</span><h2>About Me</h2></div><div class="about-grid"><div class="card"><h3>Curious about data. Driven to create.</h3><p class="muted">I am an undergraduate pursuing a BSc (Hons) in Data Science, with interests spanning data analytics, machine learning, and software development.</p><p class="muted">I enjoy exploring real-world problems, learning new tools, and developing practical projects—from analyzing datasets to creating database-backed applications. This portfolio is a growing collection of my work and learning.</p></div><div class="card"><div class="fact"><small>University</small><strong>Sabaragamuwa University of Sri Lanka</strong></div><div class="fact"><small>Degree</small><strong>BSc (Hons) in Data Science</strong></div><div class="fact"><small>Focus</small><strong>Data Science • ML • Software Development</strong></div><div class="fact"><small>Open to</small><strong>Projects and meaningful collaborations</strong></div></div></div></div></section>
+<section id="skills" class="section"><div class="container"><div class="section-head"><span class="eyebrow">02 / Toolkit</span><h2>Skills & Technologies</h2><p class="muted">Technologies I use and topics I am actively developing.</p></div><div class="skills-grid"><div class="card"><h3>Programming</h3><p class="muted">Languages for analysis and applications.</p><div class="tags"><span class="tag">Python</span><span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">PHP</span></div></div><div class="card"><h3>Data & Machine Learning</h3><p class="muted">Exploring patterns, insights, and predictive methods.</p><div class="tags"><span class="tag">Data Analysis</span><span class="tag">Machine Learning</span><span class="tag">Predictive Analytics</span><span class="tag">SQL</span></div></div><div class="card"><h3>Web & Databases</h3><p class="muted">Building structured web and desktop applications.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Bootstrap</span><span class="tag">MySQL</span><span class="tag">Java Swing</span></div></div></div></div></section>
+<section id="projects" class="section"><div class="container"><div class="section-head"><span class="eyebrow">03 / Selected work</span><h2>Featured Projects</h2><p class="muted">A selection of my public projects across data science, analytics, and development.</p></div><div class="projects-grid">
+<article class="card project"><div class="project-visual"><span>CLIMATE / ML</span></div><div class="project-body"><h3>Climate-Driven Cereal Yield Prediction</h3><p>Exploring climate-related cereal yield anomalies across European countries through a data-focused predictive analysis project.</p><div class="tags"><span class="tag">Data Science</span><span class="tag">Predictive Analysis</span></div><div class="project-links"><a href="https://github.com/MalshanJayathissa/Predicting-Climate-Driven-Cereal-Yield-Anomalies-Across-European-Countries" target="_blank" rel="noopener noreferrer">View Repository ↗</a></div></div></article>
+<article class="card project"><div class="project-visual"><span>NLP / TEXT</span></div><div class="project-body"><h3>YouTube App Review Sentiment Analysis</h3><p>Investigating sentiment in app reviews using text-analysis and classification concepts.</p><div class="tags"><span class="tag">Sentiment Analysis</span><span class="tag">NLP</span></div><div class="project-links"><a href="https://github.com/MalshanJayathissa/YouTube-App-Review-Sentiment-Analysis" target="_blank" rel="noopener noreferrer">View Repository ↗</a></div></div></article>
+<article class="card project"><div class="project-visual"><span>DATA / EDA</span></div><div class="project-body"><h3>Student Academic Performance Analysis</h3><p>An education-focused data exploration project examining patterns in student academic performance.</p><div class="tags"><span class="tag">Data Analysis</span><span class="tag">Education</span></div><div class="project-links"><a href="https://github.com/MalshanJayathissa/student-academic-performance-analysis" target="_blank" rel="noopener noreferrer">View Repository ↗</a></div></div></article>
+<article class="card project"><div class="project-visual"><span>SOFTWARE</span></div><div class="project-body"><h3>Traffic Fine Management System</h3><p>A software development project focused on handling traffic fine management workflows.</p><div class="tags"><span class="tag">Software Development</span><span class="tag">Management System</span></div><div class="project-links"><a href="https://github.com/MalshanJayathissa/traffic-fine-management-system" target="_blank" rel="noopener noreferrer">View Repository ↗</a></div></div></article>
+<article class="card project"><div class="project-visual"><span>WEB / JAVA</span></div><div class="project-body"><h3>Ali Traders Wedding Suit Rental</h3><p>A rental management project combining a PHP/MySQL customer-facing website with a Java Swing admin application.</p><div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Java Swing</span></div><div class="project-links"><a href="https://github.com/MalshanJayathissa/ali-traders-wedding-suit-rental" target="_blank" rel="noopener noreferrer">View Repository ↗</a></div></div></article>
+<article class="card project"><div class="project-visual"><span>MORE WORK</span></div><div class="project-body"><h3>Explore More on GitHub</h3><p>Find additional projects, experiments, and repositories as I continue developing my technical skills.</p><div class="tags"><span class="tag">Continuous Learning</span></div><div class="project-links"><a href="https://github.com/MalshanJayathissa?tab=repositories" target="_blank" rel="noopener noreferrer">All Repositories ↗</a></div></div></article>
+</div></div></section>
+<section id="education" class="section"><div class="container"><div class="section-head"><span class="eyebrow">04 / Academic journey</span><h2>Education</h2></div><div class="card"><div class="timeline"><h3>BSc (Hons) in Data Science</h3><p style="color:var(--accent);margin:6px 0">Sabaragamuwa University of Sri Lanka</p><p class="muted">Developing knowledge and practical skills in data-focused computing, analytics, and machine learning.</p></div></div><p class="muted" style="margin-top:20px;font-size:.88rem">Certifications and a downloadable CV can be added when available.</p></div></section>
+<section id="contact" class="section"><div class="container"><div class="contact-box"><span class="eyebrow">05 / Let's connect</span><h2>Have a project or idea in mind?</h2><p class="muted">I'm always interested in connecting with people who share an interest in data science, machine learning, and thoughtful software solutions.</p><a class="btn primary" href="mailto:dileepamalshan638@gmail.com">Send Me an Email ↗</a><div class="social" style="justify-content:center"><a href="https://github.com/MalshanJayathissa" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/malshan-jayathissa" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div></div></section>
+</main>
+<footer><div class="container footer-flex"><span>© <span id="year">2026</span> Malshan Jayathissa. All rights reserved.</span><span>Designed with purpose • Built for the web</span></div></footer>
+<script>
+const menu=document.getElementById('menu');const nav=document.getElementById('navlinks');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}));document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Malshan Jayathissa","description":"Data Science & Machine Learning Enthusiast","email":"mailto:dileepamalshan638@gmail.com","affiliation":{"@type":"CollegeOrUniversity","name":"Sabaragamuwa University of Sri Lanka"},"sameAs":["https://github.com/MalshanJayathissa","https://www.linkedin.com/in/malshan-jayathissa"]}</script>
+</body></html>
